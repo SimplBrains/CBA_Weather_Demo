@@ -1,4 +1,4 @@
-# CBA_Weather_Demo
+# CBA_Weather_Data_Generator_Demo
 
 ## Synopsis
 
