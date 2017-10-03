@@ -33,7 +33,7 @@ For Development :
 
 ## Class diagram of the code
 Please find the class diagram at location : 
-
+https://github.com/SimplBrains/CBA_Weather_Demo/blob/master/WeatherDataGeneratorClass%20Diagram.png
 
 ## Main classes used in the project
 
@@ -52,4 +52,4 @@ Kumar Abhishek - https://www.linkedin.com/in/kumar-abhishek-857a8b8/
 
 ## License
 
-This code belongs to Kumar Abhishek, NSR Registration : 741068199096. Any use, modification without his permission is strictly prohobited.
+This code belongs to Kumar Abhishek, NSR Registration : 741068199096. Any use, modification without his permission is strictly prohibited.
