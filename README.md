@@ -45,6 +45,13 @@ https://github.com/SimplBrains/CBA_Weather_Demo/blob/master/WeatherDataGenerator
 7.WriteCSV - Writes record of type WeatherInfo to a file with .csv extension.
 8.WeatherInfo - Bean class for data source parameter.
 
+## Test
+
+For Testing :
+1. Go to https://github.com/SimplBrains/CBA_Weather_Demo and download 'WeatherDataGenerator'. This is workspace.
+2. Import the workspace in Eclipse.
+3. run 'com.subals.test.testall.TestAll' in 'test' folder as junit.
+
 ## Contributors
 
 Kumar Abhishek - https://www.linkedin.com/in/kumar-abhishek-857a8b8/
