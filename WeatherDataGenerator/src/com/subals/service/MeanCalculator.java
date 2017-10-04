@@ -11,6 +11,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.subals.beans.WeatherInfo;
+import com.subals.test.service.MeanCalculatorTest;
 
 /*
  * Class Name: MeanCalculator.java
@@ -18,16 +19,25 @@ import com.subals.beans.WeatherInfo;
  * 				mean. Return these mean values.
  * Author : Kumar Abhishek(558399, TCS)
  * Date : 02-10-2017
+ * Copyright : This code belongs to Kumar Abhishek, NSR Registration : 741068199096 and is intended for demonstration to 
+ * CBA only. Any other use, modification without his permission is strictly prohibited.
  * */
 
 public class MeanCalculator {
-	final static Logger logger = Logger.getLogger(MeanCalculator.class);
+	final static Logger logger = Logger.getLogger(MeanCalculatorTest.class);
+	/* Method : currentMean
+	 * Input Parameters : weatherDataList containing weather data objects from data source, current year previous week date
+	 * Output Parameters : current year previous week mean
+	 * Function use : This function identifies previous week data and calculates mean for the identified data. Then it returns the 
+	 * calculated mean. 
+	*/
 	public Double currentMean(List<WeatherInfo> weatherDataList,Date date) throws ParseException{
 
 		double sum=0;
 		int count=0;
 		for(WeatherInfo weatherInfo : weatherDataList){
 			Date d2 = new SimpleDateFormat("yyyy-M-dd").parse((String) weatherInfo.getLt_date());
+			/*day difference is calculated between the data source date and the date of prediction. 7 days previous week window is selected*/
 			long diff = d2.getTime() - date.getTime();
 			long dayDiff= diff/(1000*60*60*24);
 			if(0>dayDiff && dayDiff >-8){
@@ -40,17 +50,23 @@ public class MeanCalculator {
 		logger.info("current Year Prevoius week mean is "+mean);
 		return mean;	
 	}
-
+	/* Method : slidingWindow
+	 * Input Parameters : weatherDataList containing weather data objects from data source, current year previous week date
+	 * Output Parameters : current year previous week mean
+	 * Function use : This function identifies previous year previous week data and calculates mean for the identified data. Then it returns the 
+	 * calculated mean with help of prevYearMean function. 
+	*/
 	public Map<String, Double> slidingWindow(List<WeatherInfo> weatherDataList, Date date) throws ParseException{
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
 		String nowAsISO = df.format(date);
 		String[] todayDate = nowAsISO.split("T")[0].split("-");
-		//System.out.println((Integer.parseInt(todayDate[0])-1)+"-"+todayDate[1]+"-"+todayDate[2]);
 		String prevYrDate = ((Integer.parseInt(todayDate[0])-1)+"-"+todayDate[1]+"-"+todayDate[2]).toString();
 		Date d1 = new SimpleDateFormat("yyyy-M-dd").parse((String) prevYrDate);
 		Map<Long,WeatherInfo> map = new HashMap<Long,WeatherInfo>();
 		for(WeatherInfo weatherInfo : weatherDataList){
 			Date d2 = new SimpleDateFormat("yyyy-M-dd").parse((String) weatherInfo.getLt_date());
+			/*day difference is calculated between the data source date and (the date of prediction- 1 year). 14 days window is 
+			selected from previous year*/  
 			long diff = d2.getTime() - d1.getTime();
 			long dayDiff= diff/(1000*60*60*24);
 			if(7>dayDiff && dayDiff >-8){
@@ -59,7 +75,13 @@ public class MeanCalculator {
 		}
 		return prevYearMean(map);
 	}
-	public Map<String, Double> prevYearMean(Map<Long,WeatherInfo> map){
+	/* Method : prevYearMean
+	 * Input Parameters : Map with key as the day difference and value as weather info object. All the available values from 
+	 * last year 14 days window is passed.
+	 * Output Parameters : Map with key as the first day of one week window and value as the mean of that window.
+	 * Function use : Helper function for slidingWindow function. 
+	*/
+	private Map<String, Double> prevYearMean(Map<Long,WeatherInfo> map){
 		int diffStart=-8;
 		double sum = 0;
 		String sumDate = null;
