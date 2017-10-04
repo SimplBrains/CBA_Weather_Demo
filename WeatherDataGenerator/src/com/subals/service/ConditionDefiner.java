@@ -2,15 +2,24 @@ package com.subals.service;
 
 import org.apache.log4j.Logger;
 
+import com.subals.test.service.ConditionDefinerTest;
+
 /*
  * Class Name: ConditionDefiner.java
  * Class Use : defines condition of weather based on temperature, pressure and humidity.
  * Author : Kumar Abhishek(558399, TCS)
  * Date : 02-10-2017
+ * Copyright : This code belongs to Kumar Abhishek, NSR Registration : 741068199096 and is intended for demonstration to 
+ * CBA only. Any other use, modification without his permission is strictly prohibited.
  * */
 
 public class ConditionDefiner {
-	final static Logger logger = Logger.getLogger(ConditionDefiner.class);
+	final static Logger logger = Logger.getLogger(ConditionDefinerTest.class);
+	/* Method : conditionDefine
+	 * Input Parameters : temperature, pressure, humidity
+	 * Output Parameters : condition
+	 * Function use : This function analyze the condition based on the input parameters. 
+	*/
 	public String conditionDefine(double temp, double pressure, double humidity){
 
 		String condition="";
