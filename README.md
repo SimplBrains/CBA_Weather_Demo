@@ -38,12 +38,19 @@ https://github.com/SimplBrains/CBA_Weather_Demo/blob/master/WeatherDataGenerator
 
 ## Main classes used in the project
 1.BatchHandlerMain - Invokes the process and generate weather prediction from previous year history data.
+
 2.TodayPredictorMain - Invokes the process and generate weather prediction for current date(i.e. today).(for debug/future used utility)
+
 3.MeanCalculator - calculates the mean of current year previous week and last year sliding window mean. Return these mean values.
+
 4.MeanComparator - compares the mean of current year previous week and last year sliding window mean and find best window. Find start date of best window and returns the same.
+
 5.ConditionDefiner - defines condition of weather based on temperature, pressure and humidity.
+
 6.ReadCSV - Read record of type WeatherInfo from a file with .csv extension.
+
 7.WriteCSV - Writes record of type WeatherInfo to a file with .csv extension.
+
 8.WeatherInfo - Bean class for data source parameter.
 
 ## Test
