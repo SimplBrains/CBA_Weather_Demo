@@ -7,6 +7,7 @@ This Project is a prototype of a program which articially simulates the weather 
 ## Algorithm used for the project
 
 This project uses sliding window algorithm. 
+
 Sliding window algorithm - Mean of current year last week data is calcualted. Also, sliding window is identified for last year 14 days data. Mean is calculated for each sliding window. Best Matching mean between current year and slinding window is selected on the basis of proximity of the data. Then the last year date is identified on the basis of selected mean. This identified date data is replicated for the prediction date.
 
 We have used batch pocessing which takes 2 parameters - the start date and number of records to be generated. It iterates the next date starting from 'the start date' and keep incrementing the date till the 'number of records' limit is reached.
