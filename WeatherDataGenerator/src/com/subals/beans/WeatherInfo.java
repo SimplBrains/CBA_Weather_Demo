@@ -5,6 +5,8 @@ package com.subals.beans;
  * Class Use : Bean class for data source parameter.
  * Author : Kumar Abhishek(558399, TCS)
  * Date : 02-10-2017
+ * Copyright : This code belongs to Kumar Abhishek, NSR Registration : 741068199096 and is intended for demonstration to 
+ * CBA only. Any other use, modification without his permission is strictly prohibited.
  * */
 
 public class WeatherInfo {
@@ -18,6 +20,7 @@ public class WeatherInfo {
 	private String temp;
 	private double pressure;
 	private short humidity;
+	//all the below functions are getters and setters for above defined instance variables.
 	public String getLocation() {
 		return location;
 	}
