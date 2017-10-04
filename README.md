@@ -14,7 +14,7 @@ We have used batch pocessing which takes 2 parameters - the start date and numbe
 
 ## API Reference
 
-Software libraries used are jdk1.8.0_144 and log4j-1.2.17.
+Software libraries used are jdk1.8.0_144, log4j-1.2.17 and junit-4.11.
 
 ## Software’s required to run this project
 
